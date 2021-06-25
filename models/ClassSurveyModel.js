@@ -10,14 +10,12 @@ class ClassSurveyModel {
     static async getAllTopicData() {
         try {
             const response = await db.any(
-                `SELECT topic_name, ranking_title FROM topics
+                `SELECT * FROM topics
                     JOIN rankings
                     ON topics.topic_score = rankings.id
                 ORDER BY topics.topic_name;
                 `
-
-            );
-            console.log(response);
+            )
             return response;
         } catch (error) {
             console.error('ERROR: ', error);

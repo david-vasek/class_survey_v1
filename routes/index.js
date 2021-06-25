@@ -4,8 +4,6 @@ const ClassSurveyModel = require('../models/ClassSurveyModel');
 
 router.get('/', async(req, res) => {
     const topicData = await ClassSurveyModel.getAllTopicData();
-    console.log("TOPIC DATA: ", topicData);
-
     res.render('template', {
         locals: {
             title: 'Class Survey',
